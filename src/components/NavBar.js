@@ -1,8 +1,14 @@
-import  React from 'react';
+import  React, { Component, Proptypes } from 'react';
 import { Link } from 'react-router';
 
 
-const NavBar = () => {
+class NavBar extends Component {
+    constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const { onLoginClick, onLogoutClick, isAuthenticated, profile } = this.props
     return (
 <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div className="container">
@@ -19,22 +25,25 @@ const NavBar = () => {
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
-                    <li>
-                        <a href="#">Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Sign Up</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
+                { !isAuthenticated ? (
+                    <ul className="list-inline">
+                    <li><button className="btn btn-primary" onClick={onLoginClick}>Login</button></li>
+                     </ul>
+                      ) : (
+                      <ul className="list-inline">
+                      <li><img src={profile.picture} height="40px" /></li>
+                      <li><span>Welcome, {profile.nickname}</span></li>
+                      <li><button className="btn btn-primary" onClick={onLogoutClick}>Logout</button></li>
+                       </ul>
+                    )}
                 </ul>
             </div>
 
         </div>
 
     </nav>
-      );
-  };
+      )
+    }
+  }
 
   export default NavBar;
