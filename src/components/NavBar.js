@@ -1,8 +1,29 @@
-import  React from 'react';
+import  React, {Component} from 'react';
+import {connect} from 'react-redux';
 import { Link } from 'react-router';
 
 
-const NavBar = () => {
+class NavBar extends Component {
+
+    renderLinks(){
+    if (this.props.authenticated) {
+      // show a link to sign out
+      return <li className="nav-item">
+        <Link className="nav-link" to="/signout">Sign Out</Link>
+      </li>
+    } else {
+      // show a link to sign in or sign up
+      return [
+        <li className="nav-item" key={1}>
+          <Link className="nav-link" to="/signin">Sign In</Link>
+        </li>,
+        <li className="nav-item" key={2}>
+          <Link className="nav-link" to="/signup">Sign Up</Link>
+        </li>
+      ];
+    }
+  }
+    render(){
     return (
 <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div className="container">
@@ -14,20 +35,13 @@ const NavBar = () => {
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#">Buen Provecho</a>
+
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <Link to="/" className="navbar-brand"> Buen Provecho </Link>
                 <ul className="nav navbar-nav">
-                    <li>
-                        <a href="#">Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Sign Up</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
+                        {this.renderLinks()}
                 </ul>
             </div>
 
@@ -35,6 +49,13 @@ const NavBar = () => {
 
     </nav>
       );
-  };
+    }
+  }
 
-  export default NavBar;
+function mapStateToProps(state){
+    return {
+        authenticated: state.auth.authenticated
+    }
+}
+
+export default connect(mapStateToProps)(NavBar);

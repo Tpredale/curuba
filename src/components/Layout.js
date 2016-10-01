@@ -21,10 +21,10 @@ const Layout = () => {
         <div className="row">
             <div className="col-sm-8">
                 <h2>Recipes and Chef's on Demand</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
+                <p>Heloo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
                 <p>
-                    <a className="btn btn-default btn-lg" href="#">Sign Up Today!</a>
+                    <Link className="btn btn-default btn-lg" to="/signup">Sign Up Today!</Link>
                 </p>
             </div>
             <div className="col-sm-4">
