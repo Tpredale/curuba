@@ -8,9 +8,22 @@ class NavBar extends Component {
     renderLinks(){
     if (this.props.authenticated) {
       // show a link to sign out
-      return <li className="nav-item">
-        <Link className="nav-link" to="/signout">Sign Out</Link>
-      </li>
+      return [
+        <li className="nav-item" key= {6}>
+          <Link className="nav-link" to="/chefs">Hire A Chef</Link>
+        </li>,
+        <li className="nav-item" key= {7}>
+          <Link className="nav-link" to="/recipes">Recipe Search</Link>
+        </li>,
+        <li className="nav-item" key= {8}>
+          <Link className="nav-link" to="/notebox">My Recipe Notebox</Link>
+        </li>,
+        <li className="nav-item" key= {5}>
+          <Link className="nav-link" to="/signout">Sign Out</Link>
+        </li>
+
+      ];
+
     } else {
       // show a link to sign in or sign up
       return [

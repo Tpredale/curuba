@@ -1,9 +1,9 @@
 export default function(){
   return [
-  {name: 'Chef 1'},
-  {name: 'Chef 2'},
-  {name: 'Chef 3'},
-  {name: 'Chef 4'},
-  {name: 'Chef 5'},
+  {name: 'John Smith', specialties: "Asian Fusion, Mexican, Brunch, Grilled Meats"},
+  {name: 'Tom Doe', specialties: "Breakfasts, Pastries, Brunch, Finger Foods"},
+  {name: 'Jane Doe', specialties: "Italian, Seafood, Tapas"},
+  {name: 'Emma Smith', specialties: "Latin Fusion, Peruvian, Salads"},
+  {name: 'Frank Doe', specialties: "Cakes, Pastries, Cookies, Small Desserts"},
   ]
 }

@@ -15,6 +15,12 @@ app.use(cors());
 app.use(bodyParser.json({type: '*/*'}));
 router(app);
 
+app.use(express.static(__dirname + "/../src/public"));
+
+app.get('*', (req, res) => {
+ res.sendFile(path.join(__dirname, '/../src/public/index.html'));
+});
+
 const db =  process.env.MONGODB_URI || 'mongodb://localhost/auth:auth';
 mongoose.connect(db);
 
@@ -22,12 +28,6 @@ mongoose.connect(db);
 const PORT = process.env.PORT || 3090;
 const server = http.createServer(app);
 
-
-// app.use(express.static(__dirname + '/../src/public'));
-
-// app.get('*', function (req, res) {
-//  res.sendFile(path.join(__dirname, '/../src/public/index.html'));
-// });
 
 server.listen(PORT, () => {console.log("Listening on port 3090");});
 

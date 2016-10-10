@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router'
 
 export default class RecipeList extends Component {
   static propTypes = {
@@ -19,7 +20,7 @@ export default class RecipeList extends Component {
                     <div className="col-md-6 portfolio-item" key={`RecipeItem_${item.id}_${index}`}>
                     <img className="img-responsive" src={item.imageUrlsBySize['90']} alt="" />
                 <h3>
-                    <a href="#">{item.recipeName}</a>
+                    <Link to={"recipes/"+item.id}>{item.recipeName}</Link>
                 </h3>
             </div>
 

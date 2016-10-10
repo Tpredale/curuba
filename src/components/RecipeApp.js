@@ -22,7 +22,7 @@ class RecipeApp extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6 col-md-offset-3 search-bar-content">
-                <h1>Search Via Yummly</h1>
+                <h2>Recipe search powered by</h2> <a href='http://www.yummly.com/recipes'><img alt='Yummly' src='http://static.yummly.com/api-logo.png'/></a>
                 <Recipes actions={actions} status={this.props.status} />
               </div>
             </div>

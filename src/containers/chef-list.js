@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {selectChef} from '../actions/index';
+import {bindActionCreators} from 'redux';
 
 
 class ChefList extends Component{
   renderList(){
-    return this.props.chefs.map(chef) => {
+    return this.props.chefs.map((chef)=> {
       return (
-        <li key={chef.name} className="list-group-item"> {chef.name} </li>
+        <li  key={chef.name} onClick={()=> this.props.selectChef(chef)}className="list-group-item"> {chef.name} </li>
         )
-    }
+    })
   }
   render(){
     return (
@@ -22,8 +24,12 @@ class ChefList extends Component{
 
 function mapStateToProps(state) {
   return {
-    books: state.books
+    chefs: state.chefs
   };
 }
 
-export default connect(mapStateToProps)(ChefList);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({selectChef: selectChef}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChefList);
